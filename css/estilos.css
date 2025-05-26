@@ -221,12 +221,12 @@ main{
 .etiquetas{
     font-weight: bold;
     flex-grow: 1;
-    outline: solid black;
+    font-size: .8em;
 }
 .datos{
     text-align: right;
     flex-shrink: 1;
-   
+    font-size: .8em;
     
 }
 /* Al darle un ancho de 100% a la imagen duede que quede un vacia en la parte
