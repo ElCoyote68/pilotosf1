@@ -1,0 +1,245 @@
+/* CSS reset */
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+
+}
+
+@font-face {
+    font-family: speed;
+    src: url(../fuentes/High\ Speed.otf);
+}
+
+body {
+    background-image: url(../imagenes/circuito.png);
+    background-size: cover;
+    /*para que la imagen cubra todo el fondo y no mse repita*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header h1 {
+    text-align: center;
+    font-family: speed;
+    color: #fff;
+    font-size: 3em;
+    margin-top: 20px;
+    text-shadow: 2px 2px 1px black, -2px -2px 1px black;
+
+}
+main{
+    display: flex;
+    /* Las cajas de los pilotos crecen mucho de alto debido a la columna de la
+    puntuacion, pues por defecto align-items tiene el valor stretch.
+    con esto lo evitamos */
+    align-items: start;
+    
+    }
+
+/* puntuacion---------------------------------------------------------- */
+#puntuacion {
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+    /* al tener flex-wrap: wrap en pilotos, deja un espacio muy grande a los lados,
+    con lo que puntuacion no tiene espacio suficiente para mostrar el nombre en
+    una linea. Una solucion es esta */
+    min-width: fit-content;
+    /*para que el ancho minimo sea el necesario para mostrar el contenido*/
+    margin-left : 20px;
+    /*para que no quede pegado al borde*/
+}
+
+#puntuacion h2 {
+    background-color: white;
+    font-size: 1.5em;
+    padding: .5em;
+    ;
+}
+
+#puntuacion li {
+    padding: .5em;
+    display: flex;
+    /*para poner el nombre a la izquierda y los puntos a la derecha*/
+    justify-content: space-between;
+    /*para que el nombre y los puntos se separen*/
+    font-style: bold;
+}
+
+#puntuacion li:nth-of-type(odd) {
+    /*para los impares*/
+    background-color: black;
+    color: white;
+
+}
+
+#puntuacion li:nth-of-type(even) {
+    /*para los pares*/
+    background-color: white;
+    color: black;
+}
+
+#puntuacion li:nth-of-type(-n+7) .puntos {
+    /*para los primeros 6*/
+    color: rgb(105, 175, 0);
+}
+
+#puntuacion li:nth-of-type(n+14) .puntos {
+    /*del 14 en adelante*/
+    color: red;
+}
+
+#puntuacion li:nth-of-type(n+8):nth-of-type(-n+14) .puntos {
+    /*del 8 al 14*/
+    color: rgb(192, 125, 0);
+}
+
+.puntos {
+    font-weight: bold;
+    margin-left: .9em;
+}
+
+/* PILOTOS---------------------------------------------------------------------------- */
+#pilotos {
+    display: flex;
+    flex-wrap: wrap;
+    /*para que bajen a la siguiente fila si no caben*/
+    gap: 20px;
+    /*espacio entre columnas y filas*/
+    justify-content: center;
+    
+}
+}
+
+.piloto {
+    background-color: white;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil */
+    border-radius: 5px;  /* Bordes redondeados */
+    /* al tener la imagen jueto arriba, no salenh los bordes redondeados
+    de la caja. Una posible solucion es */
+    overflow: hidden;  /*oculta lo que sobresale de la caja*/
+}
+.redbull  {
+    background-color: #1228a5;
+}
+.mclaren {
+    background-color: #e96f12;
+}
+.ferrari {
+    background-color: #a70c0c;
+}
+.aston {
+    background-color: #00B140;
+}
+.alpine {
+    background-color: #00A3FF;
+}
+.mercedes {
+    background-color: #b5b5b5;
+}
+.hass {
+    background-color: #000000;
+}
+.williams {
+    background-color: #005AFF;
+}
+.info{
+    background-color: white;
+}
+.piloto h2{
+    color: white;
+    background-repeat: no-repeat;
+    background-position: right;
+    font-size: .8em;
+    padding: 7px;
+}
+.piloto img {
+    width: 100%;
+    height: auto;
+}
+.paisesbajos {
+    background-image: url(../imagenes/banderas/paisesbajos.svg);
+}
+.japon {
+    background-image: url(../imagenes/banderas/japon.svg);
+}
+.reinounido {
+    background-image: url(../imagenes/banderas/reinounido.svg);
+}
+.australia {
+    background-image: url(../imagenes/banderas/australia.svg);
+}
+.monaco {
+    background-image: url(../imagenes/banderas/monaco.svg);
+}
+.italia {
+    background-image: url(../imagenes/banderas/italia.svg);
+}
+.españa {  
+    background-image: url(../imagenes/banderas/españa.svg);
+}
+.canada {
+    background-image: url(../imagenes/banderas/canada.svg);
+}
+.francia {
+    background-image: url(../imagenes/banderas/francia.svg);
+}
+.argentina {
+    background-image: url(../imagenes/banderas/argentina.svg);
+}
+.tailandia {
+    background-image: url(../imagenes/banderas/tailandia.svg);
+}    
+.numero{
+    position: absolute; /*para ponerlo en una posicion respecto a su contenedor
+    Su contenedor a estos efectos es el primer padre con posicionamiento
+    no estatico, el cual es el valor por defecto. Una solucion rapida es ponerle
+    posicionamiento relatrivo al padre que deseemos que sea el contenedor*/
+    top: 10px; /*para que se quede arriba*/
+    right: 10px; /*para que se quede a la derecha*/
+    border: 1px solid black;
+    background-color: rgba(255, 255, 255, 0.523);
+    padding: 4px; 
+    font-weight: bold;
+    font-style: italic;
+    border-radius: 5px;
+    font-size: .8em;
+}
+.piloto{
+    position: relative; /*para que el numero se posicione respecto a este contenedor*/
+    width: 12em;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.info{
+    padding: 10px;
+    font-size: .8em;
+    display: flex;
+    justify-content: space-between;
+}
+.etiquetas{
+    font-weight: bold;
+    flex-grow: 1;
+    outline: solid black;
+}
+.datos{
+    text-align: right;
+    flex-shrink: 1;
+   
+    
+}
+/* Al darle un ancho de 100% a la imagen duede que quede un vacia en la parte
+inferior despues de la info del piloto. Una posible solucion es usar flex 
+en la caja y hacer que info coja todo el espacio sobrante */
+.info{
+    flex-grow: 1;
+   
+}
+.piloto:hover{
+    transform: rotateY(20deg);
+    transition: transform .5s;
+
+}
+
+
